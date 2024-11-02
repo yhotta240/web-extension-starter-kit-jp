@@ -6,7 +6,7 @@ const messagePanel = document.getElementById('messagePanel');
 const messageDiv = document.getElementById('message'); // メッセージ表示用のdiv要素を取得
 
 
-// チェックボックス（トグルボタン）（トグルボタン）の状態が変更されたとき，ツールの有効/無効状態を更新
+// チェックボックス（トグルボタン）の状態が変更されたとき，ツールの有効/無効状態を更新
 enabledElement.addEventListener('change', (event) => {
   isEnabled = event.target.checked; // チェックボックス（トグルボタン）の選択状態を取得
 
