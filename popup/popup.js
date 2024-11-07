@@ -59,6 +59,19 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('extension-name').textContent = `${manifestData.name}`;
   document.getElementById('extension-version').textContent = `${manifestData.version}`;
   document.getElementById('extension-description').textContent = `${manifestData.description}`;
+  chrome.permissions.getAll((result) => {
+    let siteAccess;
+    if (result.origins.length > 0) {
+      if (result.origins.includes("<all_urls>")) {
+        siteAccess = "すべてのサイト";
+      } else {
+        siteAccess = result.origins.join("<br>");
+      }
+    } else {
+      siteAccess = "クリックされた場合のみ";
+    }
+    document.getElementById('site-access').innerHTML = siteAccess;
+  });
   // シークレットモードでのアクセス権を確認し，結果を表示
   chrome.extension.isAllowedIncognitoAccess((isAllowedAccess) => {
     document.getElementById('incognito-enabled').textContent = `${isAllowedAccess ? '有効' : '無効'}`;
