@@ -4,11 +4,11 @@ let isEnabled = false; // ツールの有効状態を示すフラグ（初期値
 const handleSampleTool = (isEnabled) => {
   if (isEnabled) { // ツールが有効になったときの処理
     // ここに何かの処理 または カスタム関数を追加
-    window.alert("SampleがONになりました"); // アラートを表示
+    // window.alert("SampleがONになりました"); // アラートを表示
     console.log("SampleがONになりました"); // コンソールにメッセージを出力
   } else { // ツールが無効になったときの処理
     // ここに何かの処理 または カスタム関数を追加
-    window.alert("SampleがOFFになりました"); // アラートを表示
+    // window.alert("SampleがOFFになりました"); // アラートを表示
     console.log("SampleがOFFになりました"); // コンソールにメッセージを出力
   }
 };
