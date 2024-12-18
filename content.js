@@ -1,15 +1,15 @@
 let isEnabled = false; // ツールの有効状態を示すフラグ（初期値は無効）
-
+const manifestData = chrome.runtime.getManifest();
 // Sampleツールの有効/無効を処理する関数
 const handleSampleTool = (isEnabled) => {
   if (isEnabled) { // ツールが有効になったときの処理
     // ここに何かの処理 または カスタム関数を追加
-    // window.alert("SampleがONになりました"); // アラートを表示
-    console.log("SampleがONになりました"); // コンソールにメッセージを出力
+    // window.alert(`${manifestData.name} がONになりました`); // アラートを表示
+    console.log(`${manifestData.name} がONになりました`); // コンソールにメッセージを出力
   } else { // ツールが無効になったときの処理
     // ここに何かの処理 または カスタム関数を追加
-    // window.alert("SampleがOFFになりました"); // アラートを表示
-    console.log("SampleがOFFになりました"); // コンソールにメッセージを出力
+    // window.alert(`${manifestData.name} がOFFになりました`); // アラートを表示
+    console.log(`${manifestData.name} がOFFになりました`); // コンソールにメッセージを出力
   }
 };
 
