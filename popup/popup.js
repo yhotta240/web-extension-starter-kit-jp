@@ -32,6 +32,13 @@ chrome.storage.local.get(['settings', 'isEnabled'], (data) => {
 // DOMの読み込み完了を監視し，完了後に実行
 document.addEventListener('DOMContentLoaded', function () {
 
+  const title = document.getElementById('title');
+  title.textContent = `${manifestData.name}`;
+  const titleHeader = document.getElementById('title-header');
+  titleHeader.textContent = `${manifestData.name}`;
+  const enabledLabel = document.getElementById('enabled-label');
+  enabledLabel.textContent = `${manifestData.name} を有効にする`;
+  
   // メッセージパネルの表示・非表示を切り替える
   panelButton.addEventListener('click', function () {
     // メッセージパネルの高さを指定（必要に応じて調整可能）
