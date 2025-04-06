@@ -38,7 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
   titleHeader.textContent = `${manifestData.name}`;
   const enabledLabel = document.getElementById('enabled-label');
   enabledLabel.textContent = `${manifestData.name} を有効にする`;
-  
+
+  const newTabButton = document.getElementById('new-tab-button');
+  newTabButton.addEventListener('click', () => {
+    chrome.tabs.create({ url: 'popup/popup.html' });
+  })
+
   // メッセージパネルの表示・非表示を切り替える
   panelButton.addEventListener('click', function () {
     // メッセージパネルの高さを指定（必要に応じて調整可能）
@@ -57,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 情報タブ: 
   // ストアリンクのクリックイベントを設定
-  const extensionLink= document.getElementById('extension_link');
+  const extensionLink = document.getElementById('extension_link');
   extensionLink.href = `chrome://extensions/?id=${chrome.runtime.id}`;
   if (extensionLink) clickURL(extensionLink);
   const issueLink = document.getElementById('issue-link');
