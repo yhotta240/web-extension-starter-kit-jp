@@ -1,4 +1,5 @@
 const header = document.querySelector('#header');
+const tabMenu = document.querySelector('#tab-menu');
 const maximizeButton = document.querySelector("#maximize-button");
 const minimizeButton = document.querySelector("#minimize-button");
 const closeButton = document.querySelector("#close-button");
@@ -7,7 +8,7 @@ const resizer = document.getElementById('resizer');
 const panel = document.getElementById('panel');
 const messagePanel = document.querySelector('#messagePanel');
 const panelHeight = () => {
-  return document.documentElement.clientHeight - header.offsetHeight - resizer.clientHeight - 23 - 21
+  return document.documentElement.clientHeight - header.offsetHeight -tabMenu.offsetHeight - resizer.offsetHeight; 
 };
 let startY = 0;
 let tmpPanelHeight = 0;
@@ -26,7 +27,8 @@ panelButton.addEventListener('click', () => {
 closeButton.addEventListener('click', () => {
   togglePanel(false);
   switchMinMaxButtons();
-  emdHeight = 150;
+  emdHeight = panel.offsetHeight > panelHeight() - 20 ? 150 : panel.offsetHeight;
+  console.log('emdHeight', panel.offsetHeight, emdHeight);
 });
 
 function togglePanel(isPanelOpen) {
@@ -77,16 +79,16 @@ window.addEventListener('mouseup', () => {
     isDragging = false;
     panel.classList.remove('no-transition');
     resizer.style.backgroundColor = '';
-    emdHeight =  panel.offsetHeight;
+    emdHeight = panel.offsetHeight;
     console.log('emdHeight', emdHeight);
     const panelHeights = panel.offsetHeight;
     if (panelHeights < 50) {
       // panel.style.height = '150px';
-      emdHeight =  150;
+      emdHeight = 150;
       togglePanel(false);
     }
     if (panelHeights > panelHeight() - 20) {
-      emdHeight =  150;
+      emdHeight = 150;
       panel.style.height = `${panelHeight()}px`;
     }
   }
@@ -113,4 +115,11 @@ minimizeButton.addEventListener('click', () => {
   togglePanel(true);
   panel.style.height = `${tmpPanelHeight}px`;
   switchMinMaxButtons();
+});
+
+window.addEventListener('resize', (e) => {
+  panel.style.height = `${panelHeight() > parseFloat(panel.style.height) ? parseFloat(panel.style.height) : panelHeight()}px`;
+  if (minimizeButton.style.display === 'block') {
+    panel.style.height = `${panelHeight()}px`;
+  }
 });
