@@ -47,8 +47,8 @@
         aria-controls="description" aria-selected="false">概要</a>
     </li>
     <li class="nav-item " role="presentation">
-      <a class="nav-link p-1" id="tutorial-tab" data-bs-toggle="tab" href="#tutorial" role="tab"
-        aria-controls="tutorial" aria-selected="false">チュートリアル</a>
+      <a class="nav-link p-1" id="document-tab" data-bs-toggle="tab" href="#document" role="tab"
+        aria-controls="document" aria-selected="false">ドキュメント</a>
     </li>
     <li class="nav-item" role="presentation">
       <a class="nav-link  p-1" id="info-tab" data-bs-toggle="tab" href="#info" role="tab" aria-controls="info"
@@ -101,53 +101,68 @@
       </div>
     </div>
 
-    <!-- チュートリアル -->
-    <div class="tab-pane fade mt-2 mx-2" id="tutorial" role="tabpanel" style="margin-bottom: 200px;"
-      aria-labelledby="tutorial-tab">
-      <p class="mb-1 fw-bold">
-        拡張機能を有効にする
-      <ol>
-        <li>PCで Chrome を開きます。</li>
-        <li>右上の [拡張機能] <img src="https://storage.googleapis.com/support-kms-prod/pPIeCzvFrMFIBxrrrWuHfxU58Rx9xBLyyv7F"
-            alt="拡張機能" height="18"> を選択します。</li>
-        <li>「Sample - サンプル」を選択します。（固定を指定しておくと，常に表示されます）</li>
-      </ol>
-      </p>
+    <!-- ドキュメント -->
+    <div class="tab-pane fade mt-2 mx-2" id="document" role="tabpanel" style="margin-bottom: 200px;"
+      aria-labelledby="document-tab">
 
-      <p class="mb-1 fw-bold">
-        Sampleを有効にする
-      </p>
-      <ul class="m-1">
-        <li>拡張機能のポップアップを開き，「Sampleを有効にする」のトグルボタンをクリック</li>
-        <li> </li>
-        <li></li>
-      </ul>
-      <div class="mb-3">無効にする場合も同じ操作を行ってください。</div>
-      <p class="mb-1 fw-bold">
-        設定
-      </p>
-      <ul>
-        <li>
-
-        </li>
-        <li>
-
-        </li>
-        <li>
-
-        </li>
-      </ul>
-      <p class="mb-1 fw-bold">
-        操作方法
-      </p>
-      <ul>
-        <li>
-
-        </li>
-        <li>
-
-        </li>
-      </ul>
+      <div class="accordion" id="accordion-word">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOTwo" aria-expanded="true" aria-controls="collapseTwo">
+              チュートリアル
+            </button>
+          </h2>
+          <div id="collapseOTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body p-3">
+              <p class="mb-1 fw-bold">
+                拡張機能を有効にする
+              <ol>
+                <li>PCで Chrome を開きます。</li>
+                <li>右上の [拡張機能] <img src="https://storage.googleapis.com/support-kms-prod/pPIeCzvFrMFIBxrrrWuHfxU58Rx9xBLyyv7F"
+                    alt="拡張機能" height="18"> を選択します。</li>
+                <li>「Sample - サンプル」を選択します。（固定を指定しておくと，常に表示されます）</li>
+              </ol>
+              </p>
+        
+              <p class="mb-1 fw-bold">
+                Sampleを有効にする
+              </p>
+              <ul class="m-1">
+                <li>拡張機能のポップアップを開き，「Sampleを有効にする」のトグルボタンをクリック</li>
+                <li> </li>
+                <li></li>
+              </ul>
+              <div class="mb-3">無効にする場合も同じ操作を行ってください。</div>
+              <p class="mb-1 fw-bold">
+                設定
+              </p>
+              <ul>
+                <li>
+        
+                </li>
+                <li>
+        
+                </li>
+                <li>
+        
+                </li>
+              </ul>
+              <p class="mb-1 fw-bold">
+                操作方法
+              </p>
+              <ul>
+                <li>
+        
+                </li>
+                <li>
+        
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
 
     <!-- 詳細情報 -->
