@@ -91,6 +91,7 @@ window.addEventListener('mouseup', () => {
       emdHeight = 150;
       panel.style.height = `${panelHeight()}px`;
     }
+    switchMinMaxButtons();
   }
 });
 
