@@ -8,7 +8,7 @@ const resizer = document.getElementById('resizer');
 const panel = document.getElementById('panel');
 const messagePanel = document.querySelector('#messagePanel');
 const panelHeight = () => {
-  return document.documentElement.clientHeight - header.offsetHeight -tabMenu.offsetHeight - resizer.offsetHeight; 
+  return document.documentElement.clientHeight - tabMenu.offsetHeight - resizer.offsetHeight;
 };
 let startY = 0;
 let tmpPanelHeight = 0;
@@ -32,7 +32,7 @@ closeButton.addEventListener('click', () => {
 });
 
 function togglePanel(isPanelOpen) {
-  console.log('高さ', parseFloat(panel.style.height), panel.offsetHeight, panel.offsetHeight > 50, 'isPanelOpen', isPanelOpen, panelHeight(), 'emdHeight', emdHeight);
+  // console.log('高さ', parseFloat(panel.style.height), panel.offsetHeight, panel.offsetHeight > 50, 'isPanelOpen', isPanelOpen, panelHeight(), 'emdHeight', emdHeight);
   if (!isDragging) {
     panel.style.height = `${isPanelOpen ? `${emdHeight}px` : '0px'}`;
   }
@@ -60,9 +60,9 @@ resizer.addEventListener('mousedown', (e) => {
 //マウスを動かしたときの処理
 window.addEventListener('mousemove', (e) => {
   if (isDragging) {
-    if (header.offsetHeight >= e.clientY - 20) {
+    if ((header.offsetHeight / 2) >= e.clientY) {
       panel.style.height = `${panelHeight()}px`;
-      return; // headerの高さ以上にはならないようにする
+      return;
     }
     const dy = e.clientY - startY;
     const newHeightTop = startHeightTop - dy;
@@ -80,7 +80,7 @@ window.addEventListener('mouseup', () => {
     panel.classList.remove('no-transition');
     resizer.style.backgroundColor = '';
     emdHeight = panel.offsetHeight;
-    console.log('emdHeight', emdHeight);
+    // console.log('emdHeight', emdHeight);
     const panelHeights = panel.offsetHeight;
     if (panelHeights < 50) {
       // panel.style.height = '150px';
